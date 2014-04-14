@@ -1,6 +1,5 @@
 var scene, camera, renderer, controller;
 
-/* @pjs preload="./laptop_pictures.jpg"; */
 var pointsInScreen = [];
 var MAX_PTS = 2;
 
@@ -91,7 +90,6 @@ float[] RIGHT_DRUMS = [OVER_DRUM_3, OVER_DRUM_4, OVER_DRUM_5];
 int score = 0;
 int max_lives = 500;
 int lives = max_lives;
-PImage bg;
 
 void setup() {
 	size(canv_w,canv_h);
@@ -101,7 +99,6 @@ void setup() {
 	for (int i = 2; i<notes.length; i++) {
 		notes[i] = new Note();
 	}
-	bg = loadImage("./laptop_pictures.jpg");
 }
 
 // Set up Drums
@@ -173,7 +170,7 @@ void reduce_life(){
 }
 
 void draw() {
-	background(bg);
+	background(0);
 
 	draw_score();
 	draw_lives();

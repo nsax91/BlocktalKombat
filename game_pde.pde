@@ -91,7 +91,6 @@ float[] RIGHT_DRUMS = [OVER_DRUM_3, OVER_DRUM_4, OVER_DRUM_5];
 int score = 0;
 int max_lives = 5000;
 int lives = max_lives;
-PImage bg;
 
 void setup() {
 	size(canv_w,canv_h);
@@ -101,7 +100,6 @@ void setup() {
 	for (int i = 2; i<notes.length; i++) {
 		notes[i] = new Note();
 	}
-	bg = loadImage("./pictures.jpg");
 }
 
 // Set up Drums
@@ -173,7 +171,8 @@ void reduce_life(){
 }
 
 void draw() {
-	background(bg);
+	background(0);
+
 	draw_score();
 	draw_lives();
 	draw_speed();
