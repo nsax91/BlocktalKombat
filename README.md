@@ -5,7 +5,7 @@ BlocktalKombat
 
 BlocktalKombat is a [LEAP Motion](http://www.leapmotion.com/) catch-the-blocks game that runs in your browser. The game engine is built in Processing.js, and the browser gets data from the LEAP Motion controller using leap.js
 
-Our project was so cool that it was featured in the [2013 Yelp Hackathon video](http://www.youtube.com/watch?v=EdY23VP0ets&t=40s)!
+Our project was so cool that it was featured in the [2013 Yelp Hackathon video](http://www.youtube.com/watch?v=EdY23VP0ets&t=48s)!
 
 ## Gameplay
 
