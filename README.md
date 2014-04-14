@@ -33,4 +33,4 @@ Depending on your screen size, you'll want to either comment out the usage of ga
 
 1. [nsax91](http://www.github.com/nsax91)
 2. [venkatesanp89](http://www.github.com/venkatesanp89)
-3. [hari_was_here](https://www.github.com/hari_was_here)
+3. [hariwashere](https://www.github.com/hariwashere)
