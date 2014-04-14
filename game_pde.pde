@@ -19,16 +19,6 @@ function setupRenderer(){
 	camera.lookAt(new THREE.Vector3(0,300,0));
 
 	scene = new THREE.Scene();
-    
-    /*
-    // Basic Test
-    var cube = new THREE.Mesh(
-    	new THREE.CubeGeometry(50,50,50),
-   		new THREE.MeshBasicMaterial({color: 0x000000})
-   	);
-   	scene.add(cube);
-	*/
-	
     renderer.render(scene, camera);
 }
 
@@ -40,16 +30,6 @@ function processFrame(frame){
 		var pos = hand.sphereCenter;
 		var dir = hand.direction;
 
-		/*
-		var origin = new THREE.Vector3(pos[0], pos[1] - 30, pos[2]);
-		var direction = new THREE.Vector3(dir[0], dir[1], dir[2]);
-
-		var arrowObj = new THREE.ArrowHelper(origin, direction, 40, 0xf0f0f0);
-        arrowObj.position = origin;
-		arrowObj.setDirection(direction);
-
-		pointsInFrame.push(arrowObj);
-		*/
 		pointsInFrame.push(pos);
 	}
 
@@ -64,22 +44,16 @@ function processResponse(frame){
 
 		if(pointsInScreen.length > MAX_PTS){
 			var pointToRemove = pointsInScreen.shift();
-			//scene.remove(pointToRemove);
 		}
 
 		var pointToAdd = pointsInFrame[index];
 		pointsInScreen.push(pointToAdd);
-		//scene.add(pointToAdd);
-		//console.log("Adding point to scene.");
 		handMoved(pointToAdd[0], pointToAdd[1]);
 		console.log("Got x:" + pointToAdd[0] + "y:" + pointToAdd[1] + "z:" + pointToAdd[2]);
 	}
-
-	//renderer.render(scene, camera);
 }
 
 function startListening(){
-	//controller = new Leap.Controller();
 	controller = new Leap.Controller({frameEventName: "deviceFrame"});
 
 	controller.on(
@@ -90,11 +64,7 @@ function startListening(){
 	controller.connect();
 }
 
-//$.ready(function(){
-	//setupRenderer();
-	startListening();
-//});
-
+startListening();
 
 float canv_w = 1900;
 float canv_h = 1000;
@@ -131,7 +101,7 @@ void setup() {
 	for (int i = 2; i<notes.length; i++) {
 		notes[i] = new Note();
 	}
-	bg = loadImage("./pictures.jpg");	
+	bg = loadImage("./pictures.jpg");
 }
 
 // Set up Drums
@@ -189,7 +159,7 @@ void update_speed(){
 	}
 	if (((score % 2000) == 0) && (note_speed < max_speed)){
 		note_speed++;
-	}	
+	}
 }
 
 void reduce_life(){
@@ -199,7 +169,7 @@ void reduce_life(){
 		lives = max_lives;
 		score = 0;
 		longest_combo = 0;
-	}		
+	}
 }
 
 void draw() {
@@ -208,7 +178,7 @@ void draw() {
 	draw_lives();
 	draw_speed();
 	draw_combo();
-	
+
 	// Draw the Drums
 	for (int i = 0; i<drums.length; i++) {
 		drums[i].draw();
@@ -235,13 +205,12 @@ void draw() {
 
 }
 
-
 void drum_note_stick_collision(ArrayList drums_hit) {
 	for (int i = 0; i<drums_hit.size(); i++) {
-		Drum d = drums[drums_hit.get(i)];		
+		Drum d = drums[drums_hit.get(i)];
 
 		for (int j = 0; j<notes.length; j++) {
-			if (!notes[j].exists) {				
+			if (!notes[j].exists) {
 				continue;
 			}
 
@@ -249,8 +218,8 @@ void drum_note_stick_collision(ArrayList drums_hit) {
 				if(notes[j].played == false){
 					update_score();
 					notes[j].played = true;
-					update_speed();	
-				}				
+					update_speed();
+				}
 			}
  		}
 	}
@@ -284,13 +253,13 @@ ArrayList determine_drums_hit() {
 		}
 	}
 
-	return drums_hit;	
+	return drums_hit;
 }
 
-void highlight_drums(ArrayList drums_hit) {	
+void highlight_drums(ArrayList drums_hit) {
 	for (int i = 0; i<drums_hit.size(); i++) {
 		drums[drums_hit.get(i)].highlight = true;
-	}	
+	}
 }
 
 void moveDrumStick(float x, float y, Drumstick ds) {
@@ -301,7 +270,6 @@ void moveDrumStick(float x, float y, Drumstick ds) {
 	else{
 		ds.x = (x+maxX)*1900/(2*maxX);
 	}
-	//ds1.y = 1000-y;
 	ds.y = 900;
 }
 
@@ -321,7 +289,6 @@ function handMoved(x,y) {
 	else{
 		handMovedLeft(x, y);
 	}
-	//ds1.y = 1000-y;
 }
 
 class Note {
@@ -347,7 +314,7 @@ class Note {
 		exists = false;
 	}
 
-	void reset() {		
+	void reset() {
 		float seed = random(0,1);
 		float[] over_drum;
 		if(is_left)
@@ -367,7 +334,6 @@ class Note {
 			x = over_drum[2];
 			y = 0;
 		}
-			
 
 		if(!played){
 			reduce_life();
@@ -377,7 +343,7 @@ class Note {
 		}
 		else
 			current_combo++;
-			
+
 		played = false;
 	}
 
@@ -396,7 +362,7 @@ class Note {
 			fill(170,0,0,150,10);
 		}
 		else {
-			fill(red,green,blue,150,10);	
+			fill(red,green,blue,150,10);
 		}
 		rect(x,y,width,height);
 	}
@@ -406,8 +372,8 @@ class Drum {
 	float x,y,width,height;
 	float red = 5;
 	float green = 58;
-	float blue = 97;	
-	boolean highlight = false;	
+	float blue = 97;
+	boolean highlight = false;
 
 	Drum(float xp, float yp, float w, float h) {
 		x = xp;
@@ -447,22 +413,3 @@ class DrumStick {
 		ellipse(x,y,rad,rad);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
