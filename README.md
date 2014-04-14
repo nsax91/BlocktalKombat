@@ -14,7 +14,7 @@ Catch the falling blocks by moving your hands over the catching areas. Since use
 ## Preview
 
 <p align="center">
-  <!-- <img src="img/preview.jpg" title="Movie-Rating-Game Preview Image"/> -->
+  <img src="img/preview.jpg" title="So Legit"/>
 </p>
 
 ## Your Turn to Play
