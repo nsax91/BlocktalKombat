@@ -27,7 +27,7 @@ $ git clone git://github.com/nsax91/BlocktalKombat.git
 ```
 and open index.html in Firefox or Safari (Chrome not supported yet).
 
-Depending on your screen size, you'll want to either comment out the usage of game_pde.pde or game_pde_laptop.pde in index.html. This was a hackathon project, so don't judge us too hard for the crude design :)
+Depending on your screen size, you'll want to either comment out the usage of game_pde.pde or game_pde_laptop.pde in index.html. This was a hackathon project, so don't judge us too hard for the crudeness :)
 
 ## Contributors
 
